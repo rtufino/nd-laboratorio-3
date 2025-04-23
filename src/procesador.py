@@ -20,6 +20,11 @@ class Analizador:
         
         for fila in self.datos:
             provincia = fila['PROVINCIA']
+
+            # Descartar los registros que digan "ND"
+            if provincia == "ND":
+                continue
+
             venta = float(fila['TOTAL_VENTAS'])
             
             if provincia in ventas_por_provincia:
